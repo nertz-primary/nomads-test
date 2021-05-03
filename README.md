@@ -1,7 +1,7 @@
 # Digital nomads test task
 ## SQL tests:
 	
-	### 1. Show Stores, that have products with Christmas, Winter Tags
+	### 1\. Show Stores, that have products with Christmas, Winter Tags
 		```sql
 		SELECT 
 			Store.id AS store_id,
@@ -16,7 +16,7 @@
 		GROUP BY Store.id
 		ORDER BY id
 	```
-	### 2.  Show Users, that never bought Product from Store with id == 5
+	### 2\.  Show Users, that never bought Product from Store with id == 5
 		```sql
 		SELECT 
 			* 
@@ -32,7 +32,7 @@
 				Product.store_id = 5
 		)
 	```
-	### 3. Show Users, that had spent more than $1000
+	### 3\. Show Users, that had spent more than $1000
 		```sql
 		SELECT 
 			`User`.id AS user_id,
@@ -45,7 +45,7 @@
 		GROUP BY `User`.id
 		HAVING spent > 1000	
 	```
-	### 4. Show Stores, that have not any Sells
+	### 4\. Show Stores, that have not any Sells
 		```sql
 		SELECT 
 			*
@@ -58,7 +58,7 @@
 			LEFT JOIN Product ON OrderItem.product_id = Product.id
 		)
 	```
-	### 5. Show Mostly sold Tags
+	### 5\. Show Mostly sold Tags
 		```sql
 		SELECT 
 			Tag.id AS tag_id,
@@ -71,7 +71,7 @@
 		GROUP BY Tag.id
 		ORDER BY sell_count DESC
 	```
-	### 6. Show Monthly Store Earnings Statistics 
+	### 6\. Show Monthly Store Earnings Statistics 
 		```sql
 		SELECT 
 			Store.id AS store_id,
