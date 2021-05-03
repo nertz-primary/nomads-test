@@ -3,7 +3,7 @@
 	
 ### 1\. Show Stores, that have products with Christmas, Winter Tags
 
-	```sql
+```sql
 	SELECT 
 		Store.id AS store_id,
 		Store.name AS store_name
@@ -19,7 +19,7 @@
 ```
 ### 2\.  Show Users, that never bought Product from Store with id == 5
 
-	```sql
+```sql
 	SELECT 
 		* 
 	FROM `User`
@@ -36,7 +36,7 @@
 ```
 ### 3\. Show Users, that had spent more than $1000
 
-	```sql
+```sql
 	SELECT 
 		`User`.id AS user_id,
 		`User`.name AS user_name,
@@ -50,7 +50,7 @@
 ```
 ### 4\. Show Stores, that have not any Sells
 
-	```sql
+```sql
 	SELECT 
 		*
 	FROM Store 
@@ -64,7 +64,7 @@
 ```
 ### 5\. Show Mostly sold Tags
 
-	```sql
+```sql
 	SELECT 
 		Tag.id AS tag_id,
 		Tag.tag_name AS tag_name,
@@ -78,7 +78,7 @@
 ```
 ### 6\. Show Monthly Store Earnings Statistics 
 
-	```sql
+```sql
 	SELECT 
 		Store.id AS store_id,
 		Store.name AS store_name,
