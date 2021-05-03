@@ -102,16 +102,23 @@ ORDER BY
 ```
 
 ## SQL optimization
-	1. Need to have "price" field in OrderItem table, to improve perfomance and store price for purchase time
-	2. Beter to rename:
-		2.1. TagConnect table to ProductTag
-		2.2. "Tag.tag_name" field to "Tag.name"
-		2.3. "Order.order_number" field to Order.number
-		2.4. "Order.order_date" field to "Order.`date`" or "Order.created"
-		2.5. "Order.customer_id" field to "Order.user_id"
-	3. TagConnect don't need field "id", just primary key (tag_id, product_id)
-	4. Add unique key on Tag.tag_name. It's prevent functions like StoreManager::getTotalUniqueTags and improve perfomance	
+
+1. Need to have "price" field in OrderItem table, to improve perfomance and store price for purchase time
+2. Beter to rename:
+	2.1. TagConnect table to ProductTag
+	2.2. "Tag.tag_name" field to "Tag.name"
+	2.3. "Order.order_number" field to Order.number
+	2.4. "Order.order_date" field to "Order.`date`" or "Order.created"
+	2.5. "Order.customer_id" field to "Order.user_id"
+3. TagConnect don't need field "id", just primary key (tag_id, product_id)
+4. Add unique key on Tag.tag_name. It's prevent functions like StoreManager::getTotalUniqueTags and improve perfomance	
 	
 ## Optimization test
-	1. Line 34 should be "$tagCount = self::getTotalUniqueTags();"
-	2. Line 57 should be "$query = 'SELECT * FROM products WHERE store_id = :store';"
+1. Syntax error in line 34 should be: 
+```php
+$tagCount = self::getTotalUniqueTags();
+```
+2. Syntax error in line 57 should be:
+```php
+$query = 'SELECT * FROM products WHERE store_id = :store';
+```
