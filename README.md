@@ -128,7 +128,7 @@ $tagCount = $this->getTotalUniqueTags();
 $query = 'SELECT * FROM products WHERE store_id = :store';
 ```
 3. "$totalAmount = 0;" should be outside of foreach in line 24
-4. Also need "return $totalAmount" as the end of functions
-5. Strange operation in line 36, that changing $totalAmount depending of tag placed to item.
+4. Also need "return $totalAmount" as the end of function
+5. Strange operation in line 36, that changing $totalAmount depending of tag placed to item
 6. I think we need to store price of sold item in orderItem table, and apply discount logic when checkout, but not in line 38-46
-7. Need to change DB structure, and have a description of earnings logic to improve this code.
+7. Need to change DB structure, checkout code, and have a description of earnings logic (in part of tag count) to improve this code
