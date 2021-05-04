@@ -17,6 +17,7 @@ WHERE
 GROUP BY Store.id
 ORDER BY id
 ```
+
 ### 2\.  Show Users, that never bought Product from Store with id == 5
 
 ```sql
@@ -34,6 +35,7 @@ WHERE `User`.id NOT IN (
 		Product.store_id = 5
 )
 ```
+
 ### 3\. Show Users, that had spent more than $1000
 
 ```sql
@@ -48,6 +50,7 @@ FROM `User`
 GROUP BY `User`.id
 HAVING spent > 1000	
 ```
+
 ### 4\. Show Stores, that have not any Sells
 
 ```sql
@@ -62,6 +65,7 @@ WHERE id NOT IN (
 	LEFT JOIN Product ON OrderItem.product_id = Product.id
 )
 ```
+
 ### 5\. Show Mostly sold Tags
 
 ```sql
@@ -78,6 +82,7 @@ GROUP BY
 ORDER BY 
 	sell_count DESC
 ```
+
 ### 6\. Show Monthly Store Earnings Statistics 
 
 ```sql
@@ -111,14 +116,19 @@ ORDER BY
 	2.4. "Order.order_date" field to "Order.`date`" or "Order.created"
 	2.5. "Order.customer_id" field to "Order.user_id"
 3. TagConnect don't need field "id", just primary key (tag_id, product_id)
-4. Add unique key on Tag.tag_name. It's prevent functions like StoreManager::getTotalUniqueTags and improve perfomance	
+4. Add unique key on Tag.tag_name. It's prevent using functions like StoreManager::getTotalUniqueTags and improve perfomance	
 	
 ## Optimization test
-1. Syntax error in line 34 should be: 
+1. Error in calling static method that uses $this in line 34, should be: 
 ```php
-$tagCount = self::getTotalUniqueTags();
+$tagCount = $this->getTotalUniqueTags();
 ```
-2. Syntax error in line 57 should be:
+2. Syntax error in line 57 with different quotates, should be:
 ```php
 $query = 'SELECT * FROM products WHERE store_id = :store';
 ```
+3. "$totalAmount = 0;" should be outside of foreach in line 24
+4. Also need "return $totalAmount" as the end of functions
+5. Strange operation in line 36, that changing $totalAmount depending of tag placed to item.
+6. I think we need to store price of sold item in orderItem table, and apply discount logic when checkout, but not in line 38-46
+7. Need to change DB structure, and have a description of earnings logic to improve this code.
